@@ -14,8 +14,7 @@ export const flattenXform = ({x, y, type}) => `${type}${x ? x : ""}${x && y ? ",
 
 export default (matrix, geometry) => {
 
-    const xform = xform_point(matrix)
-    const ops = [splitSVG, parseForXform, xform, flattenXform]
+    const ops = [splitSVG, parseForXform, xform_point(matrix), flattenXform]
 
     return geometry.split(" ").map(v => bind(v, ops)).join(" ")
 
